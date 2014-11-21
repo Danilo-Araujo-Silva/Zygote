@@ -1,9 +1,13 @@
-package com.garoudan.zygote;
+package com.garoudan.zygote.controller.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.garoudan.zygote.R;
+import com.garoudan.zygote.R.id;
+import com.garoudan.zygote.R.layout;
+import com.garoudan.zygote.R.menu;
 import com.garoudan.zygote.model.vendor.android.app.Activity;
 
 public class MainActivity extends Activity {
