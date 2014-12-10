@@ -10,11 +10,11 @@ import android.util.Log;
 
 public class Serializer {
 
-	public static void write(Object objeto, String caminho) {
+	public static void write(Object object, String path) {
 		try {
-			FileOutputStream fos = new FileOutputStream(caminho);
+			FileOutputStream fos = new FileOutputStream(path);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(objeto);
+			oos.writeObject(object);
 			oos.close();
 			fos.close();
 		} catch(IOException excecao) {
@@ -22,11 +22,11 @@ public class Serializer {
 		}
 	}
 
-	public static Object read(String caminho) {
+	public static Object read(String path) {
 		Object objeto = null;
 		
 		try {
-			FileInputStream fis = new FileInputStream(caminho);
+			FileInputStream fis = new FileInputStream(path);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			objeto =  ois.readObject();
 			ois.close();
@@ -39,11 +39,11 @@ public class Serializer {
 		return objeto;
 	}
 	
-	public static <G> G read(String caminho, Class<G> c) {
-		Object objeto = read(caminho);
+	public static <G> G read(String path, Class<G> targetClass) {
+		Object objeto = read(path);
 		
 		if (objeto != null) {
-			return c.cast(objeto);
+			return targetClass.cast(objeto);
 		} else {
 			return null;
 		}
